@@ -44,10 +44,7 @@ class _HomePageState extends State<HomePage> {
                           onPressed: () {}, 
                           child: Text(
                             "X", 
-                            style: GoogleFonts.lat
-                            // (
-                            //   textStyle: Theme.of(context).textTheme.headline4
-                            // ),
+                            style: TextStyle(fontFamily: "ArchitectsDaughter-Regular", fontSize: 40.0, fontWeight: FontWeight.bold)
                           )
                         ),
                       );
