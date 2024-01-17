@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
+import 'package:tic_tac_toe/components/game_tile.dart';
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -9,6 +8,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  List gameTileValueList = ["X", "O", " ", "X", "O", "O", "X", "X", "X"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,38 +24,20 @@ class _HomePageState extends State<HomePage> {
           Expanded(
               flex: 3,
               child: Container(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 color: Colors.pink,
                 child: GridView.builder(
                     itemCount: 9,
                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
                     itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(3.0),
-                        child: ElevatedButton(
-                          
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5.0)
-                              )
-                            ),
-                            backgroundColor: MaterialStateProperty.all<Color>(Colors.pink.shade300),
-                          ),
-                          onPressed: () {}, 
-                          child: Text(
-                            "X", 
-                            style: TextStyle(fontFamily: "ArchitectsDaughter-Regular", fontSize: 40.0, fontWeight: FontWeight.bold)
-                          )
-                        ),
-                      );
+                      return  GameTile(gameTileValue: gameTileValueList[index]);
                     }),
               )),
           //play again new game buttons
-          Expanded(
-              child: Container(
-            color: Colors.pink,
-          )),
+          // Expanded(
+          //     child: Container(
+          //   color: Colors.pink,
+          // )),
         ],
       ),
     );
