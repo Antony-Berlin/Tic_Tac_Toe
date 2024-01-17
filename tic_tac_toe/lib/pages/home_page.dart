@@ -14,6 +14,12 @@ class _HomePageState extends State<HomePage> {
   int player = 1;
   int player1S = 0;
   int player2S = 0;
+  //colorswatches
+  static const  int bgcolor = 0xFFFF6FA5;
+  static const int txtColor = 0xff8865ff;
+  static const int tileColor = 0xfffb9ec4;
+  static const int smlTxtColor = 0xFFFFF155;
+
   void onGameTileTapped(index) {
     print(gameTileValueList);
 
@@ -83,26 +89,30 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: const Text("Tic Tac Toe",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              
-              fontFamily: "ArchitectsDaughter-Regular",
-              fontSize: 50,
-              fontWeight: FontWeight.bold,
-              color: Color.fromARGB(255, 45, 188, 244),
+        
+        title: const Center(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: Text("Tic Tac Toe",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                
+                fontFamily: "ArchitectsDaughter-Regular",
+                fontSize: 50,
+                fontWeight: FontWeight.bold,
+                color: Color(txtColor),
+              ),
             ),
           ),
         ),
-        backgroundColor: const Color(0xFFE91E63),
+        backgroundColor: Color(bgcolor),
       ),
       body: Column(
         children: [
           //player score
           Expanded(
               child: Container(
-            color: Color(0xFFE91E63),
+            color: Color(bgcolor),
             child: Padding(
               padding: const EdgeInsets.all(30),
               child: Row(
@@ -112,7 +122,7 @@ class _HomePageState extends State<HomePage> {
                     padding: EdgeInsets.all(3),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8.0),
-                      color: Colors.pink[300],
+                      color: Color(tileColor),
                     ),
                     width: 150,
                     height: 80,
@@ -120,12 +130,12 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const Text(
-                          "player 1",
+                          "Player 1",
                           style: TextStyle(
                             fontFamily: "ArchitectsDaughter-Regular",
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 244, 201, 45),
+                            color: Color(smlTxtColor),
                           ),
                         ),
                         const SizedBox(
@@ -137,7 +147,7 @@ class _HomePageState extends State<HomePage> {
                             fontFamily: "ArchitectsDaughter-Regular",
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 255, 255, 255),
+                            color: Color.fromARGB(255, 255, 197, 221),
                           ),
                         )
                       ],
@@ -147,7 +157,7 @@ class _HomePageState extends State<HomePage> {
                     padding: EdgeInsets.all(3),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8.0),
-                      color: Colors.pink[300],
+                      color: Color(tileColor),
                     ),
                     width: 150,
                     height: 80,
@@ -155,12 +165,12 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const Text(
-                          "player 2",
+                          "Player 2",
                           style: TextStyle(
                             fontFamily: "ArchitectsDaughter-Regular",
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 244, 201, 45),
+                            color: Color(smlTxtColor),
                           ),
                         ),
                         const SizedBox(
@@ -172,7 +182,7 @@ class _HomePageState extends State<HomePage> {
                             fontFamily: "ArchitectsDaughter-Regular",
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 255, 255, 255),
+                            color: Color.fromARGB(255, 255, 197, 221),
                           ),
                         )
                       ],
@@ -187,7 +197,7 @@ class _HomePageState extends State<HomePage> {
               flex: 3,
               child: Container(
                 padding: const EdgeInsets.all(20),
-                color: Colors.pink,
+                color:Color(bgcolor),
                 child: GridView.builder(
                     itemCount: 9,
                     physics: NeverScrollableScrollPhysics(),
@@ -204,23 +214,25 @@ class _HomePageState extends State<HomePage> {
                                       borderRadius:
                                           BorderRadius.circular(5.0))),
                               backgroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.pink.shade300),
+                                  Color(tileColor)),
                             ),
                             onPressed: () {
                               onGameTileTapped(index);
                             },
                             child: Text(gameTileValueList[index],
-                                style: TextStyle(
+                                style:const  TextStyle(
                                     fontFamily: "ArchitectsDaughter-Regular",
                                     fontSize: 40.0,
-                                    fontWeight: FontWeight.bold))),
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(txtColor)
+                                    ))),
                       );
                     }),
               )),
           //play again new game buttons
           Expanded(
               child: Container(
-            color: Colors.pink,
+            color: Color(bgcolor),
           )),
         ],
       ),
